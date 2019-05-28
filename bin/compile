@@ -1,9 +1,10 @@
 #!/bin/bash
+
 BUILD_DIR=$1
 TESSERACT_OCR_VERSION=4.00
 TESSERACT_OCR_DATA_VERSION=4.00
 
-TESSERACT_OCR_TGZ=tesseract-ocr-$TESSERACT_OCR_VERSION.tar.gz
+TESSERACT_OCR_TGZ=tesseract-ocr-$TESSERACT_OCR_VERSION.tar.xz
 
 INSTALL_DIR=$BUILD_DIR/vendor/tesseract-ocr/
 INSTALL_DIR_TRAINING_DATA=$BUILD_DIR/vendor/
@@ -19,7 +20,7 @@ tar -zxvf $TESSERACT_OCR_TGZ -C $INSTALL_DIR
 
 echo 'Getting Tesseract-OCR training data'
 mkdir -p $INSTALL_DIR_TRAINING_DATA
-tar -zxvf tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.tar.gz -C $INSTALL_DIR_TRAINING_DATA
+tar -zxvf tesseract-ocr-$TESSERACT_OCR_DATA_VERSION.tar.xz -C $INSTALL_DIR_TRAINING_DATA
 
 echo "Building runtime environment for Tesseract-OCR"
 mkdir -p $BUILD_DIR/.profile.d
